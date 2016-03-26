@@ -1,22 +1,22 @@
 //
-//  ViewController.m
+//  FourthViewController.m
 //  MotionsShake
 //
-//  Created by 周书阳 on 16/3/25.
+//  Created by 周书阳 on 16/3/26.
 //  Copyright © 2016年 zhoushuyang. All rights reserved.
 //
 
-#import "ViewController.h"
-#import <AudioToolbox/AudioToolbox.h>
-@interface ViewController ()
+#import "FourthViewController.h"
+#import <AVFoundation/AVFoundation.h>
+@interface FourthViewController ()
 @property (nonatomic,strong) UIAlertController *alertController;
 @end
 
-@implementation ViewController
+@implementation FourthViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,27 +44,27 @@
         [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             textField.backgroundColor = [UIColor purpleColor];
         }];
-
+        
         
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style: UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             NSLog(@"取消按钮被点击");
-
-                [self playSounWithName:@"shake_match.wav"];
-
+            
+            [self playSounWithName:@"shake_match.wav"];
+            
         }];
-
+        
         UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             NSLog(@"确定按钮被单击");
             [self playSounWithName:@"shake_sound_male.wav"];
         }];
-//        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"haha" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-//            NSLog(@"确定按钮被单击");
-//            [self playSounWithName:@"shake_sound_male.wav"];
-//        }];
+        //        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"haha" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        //            NSLog(@"确定按钮被单击");
+        //            [self playSounWithName:@"shake_sound_male.wav"];
+        //        }];
         [alertController addAction:action1];
         [alertController addAction:action2];
-//        [alertController addAction:action3];
-
+        //        [alertController addAction:action3];
+        
         [self presentViewController:alertController animated:YES completion:nil];
         
         alertController.title = @"Are you sure Delete!";
@@ -95,6 +95,5 @@
 }
 
 
-
-
 @end
+

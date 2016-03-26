@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "RootViewController.h"
+#import "openNum.h"
 @interface AppDelegate ()
 
 @end
@@ -16,8 +17,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self creatRoot];
     return YES;
+}
+
+- (void)creatRoot {
+    [openNum recordAppLoadNum];
+    [self netWorking];
+    self.window = [UIWindow new];
+    self.window.backgroundColor = [UIColor whiteColor];
+    RootViewController *root = [[RootViewController alloc]init];
+    self.window.rootViewController = root;
+}
+- (void)netWorking {
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
